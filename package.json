@@ -1,7 +1,7 @@
 {
-    "name": "properties-editor",
-    "publisher": "antigravity",
-    "displayName": "Properties Editor",
+    "name": "unicode-properties-editor",
+    "publisher": "fftcysstkm",
+    "displayName": "Unicode Properties Editor",
     "description": "Edit Unicode escaped properties files in Japanese",
     "icon": "images/icon.png",
     "version": "0.0.1",

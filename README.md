@@ -1,4 +1,4 @@
-# Properties Editor
+# Unicode Properties Editor
 
 VS Code extension to display, edit, and search Unicode escaped `.properties` files in your native language.
 
