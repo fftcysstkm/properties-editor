@@ -22,22 +22,8 @@ Unicodeエスケープされた `.properties` ファイルを母国語で表示�
 3.  Edit as usual and save with `Ctrl+S` (Mac: `Cmd+S`).
     *   通常通り編集し、`Ctrl+S` (Mac: `Cmd+S`) で保存します。
 
-## Installation / インストール方法
+## Note / 注意事項
 
-### Run in Development Environment (Debug) / 開発環境での実行 (デバッグ)
+If you have other extensions associated with `.properties` files, this extension might not open by default. In that case, right-click the file, select "Open With...", and choose "Unicode Properties Editor".
 
-1.  Open this project in VS Code.
-    *   このプロジェクトをVS Codeで開きます。
-2.  Press `F5` to start debugging.
-    *   `F5` キーを押してデバッグを開始します。
-3.  A new window will open. Open a `.properties` file there to verify operation.
-    *   新しいウィンドウが開くので、そこで `.properties` ファイルを開いて動作を確認します。
-
-### Install from Package / パッケージからのインストール
-
-1.  Create the `properties-editor-0.0.1.vsix` file (`npx vsce package`).
-    *   `properties-editor-0.0.1.vsix` ファイルを作成します（`npx vsce package`）。
-2.  Open the Extensions view in VS Code.
-    *   VS Codeの拡張機能ビューを開きます。
-3.  Select "Install from VSIX..." from the "..." menu at the top right, and select the created `.vsix` file.
-    *   右上の「...」メニューから「VSIXからのインストール...」を選択し、作成した `.vsix` ファイルを選択します。
+`.properties` ファイルに関連付けられた他の拡張機能がある場合、この拡張機能がデフォルトで開かないことがあります。その場合は、ファイルを右クリックして「次で開く... (Open With...)」を選択し、「Unicode Properties Editor」を選んでください。

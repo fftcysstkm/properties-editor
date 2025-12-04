@@ -345,4 +345,6 @@
         });
     }
 
+    // Signal that we are ready to receive content
+    vscode.postMessage({ type: 'ready' });
 }());

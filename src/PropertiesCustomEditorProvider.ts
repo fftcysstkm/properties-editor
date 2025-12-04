@@ -66,6 +66,9 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
                 case 'change':
                     this.updateTextDocument(document, e.text, e.isRaw);
                     return;
+                case 'ready':
+                    updateWebview();
+                    return;
             }
         });
 
