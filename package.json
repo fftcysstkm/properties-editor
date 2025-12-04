@@ -4,7 +4,7 @@
     "displayName": "Unicode Properties Editor",
     "description": "Edit Unicode escaped properties files in your native language",
     "icon": "images/icon.png",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "engines": {
         "vscode": "^1.90.0"
     },
@@ -23,7 +23,7 @@
                         "filenamePattern": "*.properties"
                     }
                 ],
-                "priority": "default"
+                "priority": "option"
             }
         ]
     },

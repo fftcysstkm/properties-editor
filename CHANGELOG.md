@@ -2,6 +2,11 @@
 
 All notable changes to the "unicode-properties-editor" extension will be documented in this file.
 
+## [0.0.7] - 2025-12-04
+
+- Changed editor priority to "option" to prevent conflicts with the standard Diff view.
+- Updated documentation with instructions on how to open the editor manually.
+
 ## [0.0.6] - 2025-12-04
 
 - Improved performance when opening large files by offloading decoding to the webview.
