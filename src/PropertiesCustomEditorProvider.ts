@@ -15,6 +15,8 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
         private readonly context: vscode.ExtensionContext
     ) { }
 
+    private readonly syncingUris = new Set<string>();
+
     /**
      * Called when our custom editor is opened.
      */
@@ -46,6 +48,9 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
 
         const changeDocumentSubscription = vscode.workspace.onDidChangeTextDocument(e => {
             if (e.document.uri.toString() === document.uri.toString()) {
+                if (this.syncingUris.has(document.uri.toString())) {
+                    return;
+                }
                 updateWebview();
             }
         });
@@ -126,7 +131,11 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
             isRaw ? text : encode(text)
         );
 
-        return vscode.workspace.applyEdit(edit);
+        this.syncingUris.add(document.uri.toString());
+        return vscode.workspace.applyEdit(edit).then(success => {
+            this.syncingUris.delete(document.uri.toString());
+            return success;
+        });
     }
 }
 

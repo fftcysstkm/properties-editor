@@ -94,7 +94,7 @@
                     text = encode(text);
                 }
 
-                if (editor.value !== text) {
+                if (editor.value !== text && editor.value.replace(/\r\n/g, '\n') !== text.replace(/\r\n/g, '\n')) {
                     isInternalChange = true;
                     editor.value = text;
                     updateBackdrop(); // Sync backdrop
