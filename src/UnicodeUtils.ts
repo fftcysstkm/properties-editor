@@ -16,12 +16,8 @@ export function decode(text: string): string {
  * e.g., "こんにちは" -> "\u3053\u3093\u306b\u3061\u306f"
  */
 export function encode(text: string): string {
-    return text.split('').map(char => {
+    return text.replace(/[^\x00-\x7F]/g, char => {
         const code = char.charCodeAt(0);
-        // Encode non-ASCII characters (code > 127)
-        if (code > 127) {
-            return '\\u' + code.toString(16).padStart(4, '0');
-        }
-        return char;
-    }).join('');
+        return '\\u' + code.toString(16).padStart(4, '0');
+    });
 }

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { decode, encode } from './UnicodeUtils';
+import { encode } from './UnicodeUtils';
 
 export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorProvider {
 
@@ -33,7 +33,7 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
         function updateWebview() {
             webviewPanel.webview.postMessage({
                 type: 'update',
-                text: decode(document.getText())
+                text: document.getText()
             });
         }
 

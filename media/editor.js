@@ -88,10 +88,10 @@
         switch (message.type) {
             case 'update':
                 let text = message.text;
-                // Extension sends Decoded text by default (from decode(document.getText()))
-                // If we are in Raw mode, we must re-encode it to display it as Raw.
-                if (isRawMode) {
-                    text = encode(text);
+                // Extension now sends RAW text (e.g. "\u3042").
+                // If we are in Decoded mode (default), we must decode it.
+                if (!isRawMode) {
+                    text = decode(text);
                 }
 
                 if (editor.value !== text && editor.value.replace(/\r\n/g, '\n') !== text.replace(/\r\n/g, '\n')) {

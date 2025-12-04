@@ -2,6 +2,11 @@
 
 All notable changes to the "unicode-properties-editor" extension will be documented in this file.
 
+## [0.0.6] - 2025-12-04
+
+- Improved performance when opening large files by offloading decoding to the webview.
+- Optimized encoding logic to reduce memory usage.
+
 ## [0.0.5] - 2025-12-04
 
 - Fixed a race condition that caused the editor to remain blank when switching tabs.
