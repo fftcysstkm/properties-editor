@@ -29,7 +29,6 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
         webviewPanel.webview.options = {
             enableScripts: true,
         };
-        webviewPanel.webview.html = this.getHtmlForWebview(webviewPanel.webview);
 
         function updateWebview() {
             webviewPanel.webview.postMessage({
@@ -72,7 +71,7 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
             }
         });
 
-        updateWebview();
+        webviewPanel.webview.html = this.getHtmlForWebview(webviewPanel.webview);
     }
 
     /**
