@@ -36,13 +36,30 @@ body {
     flex: 1;
     display: flex;
     position: relative;
+    height: 100%;
     overflow: hidden;
+}
+
+.line-numbers {
+    width: 50px;
+    box-sizing: border-box;
+    border-right: 1px solid var(--vscode-widget-border);
+    background-color: var(--vscode-editorGutter-background);
+    color: var(--vscode-editorLineNumber-foreground);
+    text-align: right;
+    padding: 10px 5px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 1.5;
+    overflow: hidden;
+    user-select: none;
+    flex-shrink: 0;
 }
 
 .editor-wrapper {
     position: relative;
     flex: 1;
-    width: 100%;
+    /* width: 100%;  Recalculated by flex */
     height: 100%;
 }
 

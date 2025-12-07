@@ -2,6 +2,9 @@
 
 All notable changes to the "unicode-properties-editor" extension will be documented in this file.
 
+## [0.0.8] - 2025-12-07
+
+- Added line number display to the editor.
 ## [0.0.7] - 2025-12-04
 
 - Changed editor priority to "option" to prevent conflicts with the standard Diff view.

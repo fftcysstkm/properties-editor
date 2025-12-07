@@ -22,6 +22,8 @@
 
     /** @type {HTMLDivElement | null} */
     const backdrop = document.querySelector('#backdrop');
+    /** @type {HTMLDivElement | null} */
+    const lineNumbers = document.querySelector('#line-numbers');
     /** @type {HTMLButtonElement | null} */
     const toggleButton = document.querySelector('#toggle-mode');
 
@@ -50,6 +52,22 @@
             return char;
         }).join('');
     }
+
+    function updateLineNumbers() {
+        if (!lineNumbers) return;
+        const text = editor.value;
+        const lines = text.split('\n').length;
+
+        // Optimize: only update if line count changed?
+        // Actually, simple re-render is usually fast enough for text editors unless files are huge.
+        // For very large files, virtualization is needed anyway, which we don't have.
+
+        let html = '';
+        for (let i = 1; i <= lines; i++) {
+            html += `<div>${i}</div>`;
+        }
+        lineNumbers.innerHTML = html;
+    }
     // -----------------------------------
 
     function updateToggleButton() {
@@ -72,6 +90,7 @@
                 editor.value = decode(editor.value);
             }
             updateBackdrop();
+            updateLineNumbers();
             updateToggleButton();
             isInternalChange = false;
 
@@ -98,6 +117,7 @@
                     isInternalChange = true;
                     editor.value = text;
                     updateBackdrop(); // Sync backdrop
+                    updateLineNumbers();
                     isInternalChange = false;
                 }
                 break;
@@ -107,6 +127,7 @@
     // Handle editor changes
     editor.addEventListener('input', () => {
         updateBackdrop(); // Sync backdrop
+        updateLineNumbers();
         if (!isInternalChange) {
             vscode.postMessage({
                 type: 'change',
@@ -121,6 +142,9 @@
         if (backdrop) {
             backdrop.scrollTop = editor.scrollTop;
             backdrop.scrollLeft = editor.scrollLeft;
+        }
+        if (lineNumbers) {
+            lineNumbers.scrollTop = editor.scrollTop;
         }
     });
 
@@ -347,4 +371,5 @@
 
     // Signal that we are ready to receive content
     vscode.postMessage({ type: 'ready' });
+    updateLineNumbers();
 }());

@@ -109,6 +109,7 @@ export class PropertiesCustomEditorProvider implements vscode.CustomTextEditorPr
                     <button id="search-close">×</button>
                 </div>
                 <div class="editor-container">
+                <div class="line-numbers" id="line-numbers"></div>
                     <div class="editor-wrapper">
                         <div class="backdrop" id="backdrop"></div>
                         <textarea id="editor" spellcheck="false"></textarea>
